@@ -1,17 +1,21 @@
-// export function inc() {
-//     return {
-//         type: "INCREMENT"
-//     }
-// }
 
-export const inc = () => {
+export const AddTask = (task) => {
     return {
-        type: "INCREMENT"
+        type: "ADD_TASK",
+        payload: task
     }
 }
 
-export const dec = () => {
+export const RemoveTask = (taskId) => {
     return {
-        type: "DECREMENT"
+        type: "REMOVE_TASK",
+        payload: taskId
+    }
+}
+
+export const EditTask = (taskId, newTitle) => {
+    return {
+        type: "EDIT_TASK",
+        payload: { taskId, newTitle }
     }
 }

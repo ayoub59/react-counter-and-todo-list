@@ -1,15 +1,16 @@
-import './App.css';
-import { useSelector, useDispatch } from 'react-redux';
-import { inc, dec } from './actions';
+import { Provider } from "react-redux";
+import TodoList from "./components/TodoList";
+import { createStore } from "redux";
+import TodoReducer from "./TodoReducer";
+
+const Store = createStore(TodoReducer);
 
 function App() {
-  const count = useSelector(state => state)
-  const dispatch = useDispatch()
   return (
     <div className="App">
-      halooooo {count}
-      <button onClick={() => dispatch(inc())}>add</button>
-      <button onClick={() => dispatch(dec())}>remove</button>
+      <Provider store={Store}>
+        <TodoList />
+      </Provider>
     </div>
   );
 }
